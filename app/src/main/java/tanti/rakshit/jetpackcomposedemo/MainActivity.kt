@@ -15,6 +15,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -37,6 +39,10 @@ import androidx.compose.ui.unit.dp
 import tanti.rakshit.jetpackcomposedemo.ui.theme.JetPackComposeDemoTheme
 
 class MainActivity : ComponentActivity() {
+
+    var list = listOf("test", "test1", "test2", "test3")
+    val myData = listOf("Hello,", "world!")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -47,7 +53,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colors.background
                 ) {
                     // Greeting("Android")
-                    LandingPage()
+                    LandingPage(myData)
                 }
             }
         }
@@ -68,7 +74,7 @@ fun Greeting(name: String) {
 
 
 @Composable
-fun LandingPage() {
+fun LandingPage(list: List<String>) {
     Scaffold(
         modifier = Modifier.fillMaxHeight(),
         topBar = {
@@ -104,6 +110,15 @@ fun LandingPage() {
                     style = MaterialTheme.typography.h2
                 )
                 Spacer(Modifier.padding(vertical = 10.dp))
+
+
+
+                LazyColumn {
+                    items(list) { item ->
+                        Text(text = item)
+                    }
+                }
+
 
                 Box(
                     Modifier
@@ -152,8 +167,10 @@ fun LandingPage() {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
+    val myData = listOf("Hello,", "world!")
+
     JetPackComposeDemoTheme {
         // Greeting("Android")
-        LandingPage()
+        LandingPage(myData)
     }
 }
