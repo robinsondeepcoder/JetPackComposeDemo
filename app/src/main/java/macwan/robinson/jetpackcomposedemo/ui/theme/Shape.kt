@@ -1,4 +1,4 @@
-package tanti.rakshit.jetpackcomposedemo.ui.theme
+package macwan.robinson.jetpackcomposedemo.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

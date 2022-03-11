@@ -1,4 +1,4 @@
-package tanti.rakshit.jetpackcomposedemo
+package macwan.robinson.jetpackcomposedemo
 
 import org.junit.Test
 
